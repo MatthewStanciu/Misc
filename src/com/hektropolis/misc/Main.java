@@ -66,6 +66,7 @@ public class Main extends JavaPlugin {
         if (cmd.getName().equalsIgnoreCase("miscreload")) {
             this.reloadConfig();
             this.saveConfig();
+            p.sendMessage(ChatColor.AQUA + "Config reloaded");
         } else if (cmd.getName().equalsIgnoreCase("reset")) {
             if (args.length == 1) {
                 final String coord = Main.config.getString("minigame-resets." + args[0] + ".coords");
@@ -74,7 +75,7 @@ public class Main extends JavaPlugin {
                 final Location loc = new Location(w, (double) Integer.parseInt(splitCoord[0]),
                         (double) Integer.parseInt(splitCoord[1]), (double) Integer.parseInt(splitCoord[2]));
                 final Material original = w.getBlockAt(loc).getType();
-                sender.sendMessage("Reseting " + original.toString().toLowerCase().replace("_", " ") + " at x:"
+                sender.sendMessage("Resetting " + original.toString().toLowerCase().replace("_", " ") + " at x:"
                         + splitCoord[0] + " y:" + splitCoord[1] + " z:" + splitCoord[2] + " for " + args[0]);
                 w.getBlockAt(loc).setType(Material.AIR);
                 Bukkit.getScheduler().scheduleSyncDelayedTask(this, new Runnable() {
@@ -84,6 +85,10 @@ public class Main extends JavaPlugin {
                     }
                 }, 50L);
                 return true;
+            }
+            else {
+                p.sendMessage(ChatColor.RED + "Usage: /reset <game>");
+                return false;
             }
         } else if (cmd.getName().equalsIgnoreCase("gameslist")) {
             for (final String thang : Main.config.getConfigurationSection("minigame-resets").getKeys(false)) {
@@ -95,7 +100,7 @@ public class Main extends JavaPlugin {
                 if (args.length == 1) {
                     player = this.getServer().getPlayer(args[0]);
                 }
-                if (args.length == 0 && sender instanceof Player) {
+                if (args.length == 0) {
                     player = (Player) sender;
                 }
                 if (player != null) {
@@ -103,8 +108,13 @@ public class Main extends JavaPlugin {
                     final int x = Integer.parseInt(coords[0]);
                     final int y = Integer.parseInt(coords[1]);
                     final int z = Integer.parseInt(coords[2]);
-                    final Chest chest = (Chest) player.getWorld().getBlockAt(x, y, z).getState();
-                    player.getInventory().addItem(new ItemStack(chest.getInventory().getItem(0)));
+                    if (player.getWorld().getBlockAt(x, y, z).getType() == Material.CHEST) {
+                        final Chest chest = (Chest) player.getWorld().getBlockAt(x, y, z).getState();
+                        player.getInventory().addItem(new ItemStack(chest.getInventory().getItem(0)));
+                    }
+                    else {
+                        player.sendMessage(ChatColor.RED + "Could not get info book. Contact an admin for help.");
+                    }
                 }
                 return true;
             }
@@ -131,8 +141,7 @@ public class Main extends JavaPlugin {
                 player.teleport(Bukkit.getWorld("hektor_city").getSpawnLocation());
             } else if (cmd.getName().equalsIgnoreCase("shrug")) {
                 if (args.length == 0) {
-                    sender.sendMessage(ChatColor.RED + "Usage: /shrug <message>");
-                    return false;
+                    p.chat("¯\\_(ツ)_/¯");
                 }
                 else {
                     StringBuilder sb = new StringBuilder();
