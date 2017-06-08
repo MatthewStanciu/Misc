@@ -12,6 +12,7 @@ commands:
     description: Resets minigames
   gameslist:
     description: Lists games
+    aliases: gamelist
   infobook:
     description: Gives the info book
   gamemenu:
