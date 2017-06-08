@@ -20,6 +20,8 @@ commands:
     description: Teleports to the arcade
   city:
     description: Teleports to the city
+  shrug:
+    description: Appends ¯\_(ツ)_/¯ to your message
 
 permissions:
   misc.reload:
@@ -42,4 +44,7 @@ permissions:
     default: true
   misc.city:
     description: Allows player to teleport ot the city
+    default: true
+  misc.shrug:
+    description: Allows player to append Slack's /shrug to their message
     default: true

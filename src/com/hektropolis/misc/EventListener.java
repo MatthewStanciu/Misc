@@ -1,5 +1,6 @@
 package com.hektropolis.misc;
 
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.Bukkit;
 import org.bukkit.event.player.PlayerTeleportEvent;
@@ -71,5 +72,10 @@ public class EventListener implements Listener
                 }
             });
         }
+    }
+
+    @EventHandler
+    public void getChatFormat(AsyncPlayerChatEvent e) {
+        Main.config.set("chat-format", e.getFormat());
     }
 }

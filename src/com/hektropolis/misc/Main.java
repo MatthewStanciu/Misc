@@ -57,6 +57,7 @@ public class Main extends JavaPlugin {
         Main.config.addDefault("staff", Arrays.asList(this.defaultStaff));
         Main.config.addDefault("players-on-1000-day", Arrays.asList(this.defaultPlayers));
         Main.config.addDefault("give-on-1000-day", true);
+        Main.config.addDefault("chat-format", "");
         Main.config.options().copyDefaults(true);
         this.saveConfig();
     }
@@ -128,6 +129,14 @@ public class Main extends JavaPlugin {
             } else if (cmd.getName().equalsIgnoreCase("city")) {
                 final Player player = (Player) sender;
                 player.teleport(Bukkit.getWorld("hektor_city").getSpawnLocation());
+            } else if (cmd.getName().equalsIgnoreCase("shrug")) {
+                if (args.length == 0) {
+                    sender.sendMessage(ChatColor.RED + "Usage: /shrug <message>");
+                    return false;
+                }
+                else {
+                    // append /shrug to the message
+                }
             }
         }
         return true;
