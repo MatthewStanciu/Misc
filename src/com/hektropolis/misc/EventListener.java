@@ -1,7 +1,5 @@
 package com.hektropolis.misc;
 
-import org.bukkit.event.player.AsyncPlayerChatEvent;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.Bukkit;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.event.EventHandler;
