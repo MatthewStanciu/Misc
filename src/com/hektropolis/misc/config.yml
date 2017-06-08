@@ -1,0 +1,22 @@
+disable-item-id-crafting:
+- '58'
+minigame-resets:
+  zombieslaughter:
+    coords: 572,8,64
+  blackjack:
+    coords: -367,57,359
+chest-location: 277,53,83
+staff:
+- solivero
+- hektoor
+- Didgitalpunk
+- AdvancedCrono
+- LucaCatrina
+- Alecfrances01
+- Yourgreatlord
+- Jortyhank
+- stephen1998x
+players-on-1000-day:
+- derpface
+give-on-1000-day: false
+1000th-player: aquawolf7
