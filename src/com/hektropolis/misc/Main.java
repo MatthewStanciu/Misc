@@ -108,7 +108,7 @@ public class Main extends JavaPlugin {
                     final int x = Integer.parseInt(coords[0]);
                     final int y = Integer.parseInt(coords[1]);
                     final int z = Integer.parseInt(coords[2]);
-                    if (player.getWorld().getBlockAt(x, y, z).getType() == Material.CHEST) {
+                    if (Bukkit.getWorld("hektor_city").getBlockAt(x, y, z).getType() == Material.CHEST) {
                         final Chest chest = (Chest) player.getWorld().getBlockAt(x, y, z).getState();
                         player.getInventory().addItem(new ItemStack(chest.getInventory().getItem(0)));
                     }
