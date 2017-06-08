@@ -28,7 +28,7 @@ public class Main extends JavaPlugin {
 
     public Main() {
         this.log = Logger.getLogger("Minecraft");
-        this.defaultRecipes = new String[]{"58", "46"};
+        this.defaultRecipes = new String[]{"WORKBENCH", "TNT"};
         this.defaultPlayers = new String[]{"derpface", "facederp"};
         this.defaultStaff = new String[]{"solivero", "hektoor", "Didgitalpunk", "AdvancedCrono", "LucaCatrina", "Alecfrances01", "Yourgreatlord", "Jortyhank", "stephen1998x"};
     }
@@ -37,14 +37,14 @@ public class Main extends JavaPlugin {
         Main.config = this.getConfig();
         this.setupConfig();
         this.getServer().getPluginManager().registerEvents(new EventListener(this), this);
-        final List<Integer> itemIds = Main.config.getIntegerList("disable-item-id-crafting");
-        for (final int itemId : itemIds) {
+        final List<String> itemIds = Main.config.getStringList("disable-item-id-crafting");
+        for (final String itemId : itemIds) {
             final Iterator<Recipe> it = this.getServer().recipeIterator();
             while (it.hasNext()) {
-                if (it.next().getResult().getTypeId() == itemId) {
+                if (it.next().getResult().getType() == Material.getMaterial(itemId)) {
                     it.remove();
-                    this.log.info("Removed recipe for " + new MaterialData(itemId).getItemType().toString()
-                            .toLowerCase().replace("_", " "));
+                    this.log.info("Removed recipe for " + new MaterialData(Material.getMaterial(itemId))
+                            .getItemType().toString().toLowerCase().replace("_", " "));
                 }
             }
         }
