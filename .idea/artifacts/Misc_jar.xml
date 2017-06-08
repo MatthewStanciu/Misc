@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Misc:jar">
+    <output-path>$USER_HOME$/Downloads</output-path>
+    <root id="archive" name="Misc.jar">
+      <element id="module-output" name="Misc" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/com/hektropolis/misc/plugin.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/com/hektropolis/misc/EventListener.java" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/com/hektropolis/misc/Main.java" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/com/hektropolis/misc/config.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/com/hektropolis/misc/StringUtil.java" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/com/hektropolis/misc/PopupMenuSystem.java" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/com/hektropolis/misc/Game.java" />
+    </root>
+  </artifact>
+</component>

@@ -73,9 +73,4 @@ public class EventListener implements Listener
             });
         }
     }
-
-    @EventHandler
-    public void getChatFormat(AsyncPlayerChatEvent e) {
-        Main.config.set("chat-format", e.getFormat());
-    }
 }

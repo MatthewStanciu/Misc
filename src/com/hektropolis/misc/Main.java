@@ -57,12 +57,12 @@ public class Main extends JavaPlugin {
         Main.config.addDefault("staff", Arrays.asList(this.defaultStaff));
         Main.config.addDefault("players-on-1000-day", Arrays.asList(this.defaultPlayers));
         Main.config.addDefault("give-on-1000-day", true);
-        Main.config.addDefault("chat-format", "");
         Main.config.options().copyDefaults(true);
         this.saveConfig();
     }
 
     public boolean onCommand(final CommandSender sender, final Command cmd, final String label, final String[] args) {
+        Player p = (Player) sender;
         if (cmd.getName().equalsIgnoreCase("miscreload")) {
             this.reloadConfig();
             this.saveConfig();
@@ -135,7 +135,12 @@ public class Main extends JavaPlugin {
                     return false;
                 }
                 else {
-                    // append /shrug to the message
+                    StringBuilder sb = new StringBuilder();
+                    for (String arg : args) {
+                        sb.append(arg);
+                        sb.append(" ");
+                    }
+                    p.chat(sb.toString() + "¯\\_(ツ)_/¯");
                 }
             }
         }
