@@ -1,0 +1,45 @@
+name: Misc
+author: TechBug2012
+description: A collection of things for Hektropolis
+version: 2.0
+main: com.hektropolis.misc.Main
+depend: [PopupMenuAPI]
+
+commands:
+  miscreload:
+    description: Reloads the config
+  reset:
+    description: Resets minigames
+  gameslist:
+    description: Lists games
+  infobook:
+    description: Gives the info book
+  gamemenu:
+    description: Opens up the game menu GUI
+  arcade:
+    description: Teleports to the arcade
+  city:
+    description: Teleports to the city
+
+permissions:
+  misc.reload:
+    description: Allows player to reload the config
+    default: op
+  misc.reset:
+    description: Allows player to reset games
+    default: op
+  misc.gameslist:
+    description: Allows player to view the list of games
+    default: true
+  misc.infobook:
+    description: Allows player to get an infobook
+    default: op
+  misc.gamemenu:
+    description: Allows player to open the game menu GUI
+    default: true
+  misc.arcade:
+    description: Allows player to teleport to the arcade
+    default: true
+  misc.city:
+    description: Allows player to teleport ot the city
+    default: true
