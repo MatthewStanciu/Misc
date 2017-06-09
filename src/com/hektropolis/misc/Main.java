@@ -98,7 +98,12 @@ public class Main extends JavaPlugin {
             if (cmd.getName().equalsIgnoreCase("infobook")) {
                 Player player = null;
                 if (args.length == 1) {
-                    player = this.getServer().getPlayer(args[0]);
+                    if (this.getServer().getPlayer(args[0]).isOnline()) {
+                        player = this.getServer().getPlayer(args[0]);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Player " + args[0] + " is not online!");
+                        return false;
+                    }
                 }
                 if (args.length == 0) {
                     player = (Player) sender;
